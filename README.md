@@ -25,24 +25,32 @@ techniques.
 
 ```
 src/
-  components/     # composants Astro (écran Pip-Boy, onglets, boot sequence…)
-  lib/            # logique testée (parsing CV, machine à états boot, navigation onglets)
+  components/     # PipBoyScreen, TabNav, BootSequence
+    sections/     # StatusSection, InvSection, DataSection, MapSection
+  lib/            # logique testée (cvData, bootSequence, tabNavigation)
   data/           # contenu du CV en JSON (jamais codé en dur dans les composants)
-  styles/         # thème Pip-Boy (custom properties, effets CRT)
+  styles/         # thème Pip-Boy (pipboy.css : custom properties, effets CRT)
   pages/          # routes Astro
 tests/
-  unit/           # Vitest
-  e2e/            # Playwright
+  unit/           # Vitest — 26 tests, 100% couverture lignes/fonctions sur src/lib
+  e2e/            # Playwright (navigation clavier, ARIA, contenu, boot)
 public/
-  _headers        # headers de sécurité (Cloudflare Pages)
+  _headers        # headers de sécurité (CSP, HSTS, X-Frame-Options DENY…)
+  favicon.ico / favicon.svg  # encore le favicon par défaut du scaffold Astro (placeholder)
 ```
 
 ## Contenu du CV
 
-Les données dans `src/data/*.json` sont actuellement des **placeholders
-génériques** (nom, entreprises, email, liens). À remplacer par les
-informations réelles, en concertation avec la personne concernée, avant
-toute publication.
+Les données dans `src/data/{profile,skills,experience,contact}.json` sont
+actuellement des **placeholders entièrement fictifs** (nom, entreprises,
+email, liens). À remplacer par les informations réelles, en concertation
+avec la personne concernée, avant toute publication.
+
+## Favicon
+
+Le favicon (`public/favicon.ico`, `public/favicon.svg`) est encore celui
+généré par défaut par le scaffold Astro — à remplacer par une icône propre
+au thème Pip-Boy avant publication.
 
 ## Déploiement
 
