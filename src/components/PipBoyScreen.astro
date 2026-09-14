@@ -1,0 +1,15 @@
+---
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<div class="pipboy-screen">
+  <div class="crt-overlay" aria-hidden="true"></div>
+  <header class="pipboy-screen__header">
+    <p class="pipboy-screen__title">{title}</p>
+  </header>
+  <slot />
+</div>

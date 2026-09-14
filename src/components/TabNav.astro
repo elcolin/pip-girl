@@ -1,0 +1,65 @@
+---
+import type { TabId } from '../lib/tabNavigation';
+
+interface Tab {
+  id: TabId;
+  label: string;
+}
+
+interface Props {
+  tabs: Tab[];
+  activeTab: TabId;
+}
+
+const { tabs, activeTab } = Astro.props;
+---
+
+<div class="tab-list" role="tablist" aria-label="Sections du Pip-Boy" data-tab-list>
+  {
+    tabs.map((tab) => (
+      <button
+        type="button"
+        role="tab"
+        id={`tab-${tab.id}`}
+        aria-controls={`panel-${tab.id}`}
+        aria-selected={tab.id === activeTab ? 'true' : 'false'}
+        tabindex={tab.id === activeTab ? 0 : -1}
+      >
+        {tab.label}
+      </button>
+    ))
+  }
+</div>
+
+<script>
+  import { getNextTabIndex } from '../lib/tabNavigation';
+
+  const tabList = document.querySelector<HTMLElement>('[data-tab-list]');
+
+  if (tabList) {
+    const tabButtons = Array.from(tabList.querySelectorAll<HTMLButtonElement>('[role="tab"]'));
+
+    const activate = (index: number, focus: boolean) => {
+      tabButtons.forEach((button, i) => {
+        const selected = i === index;
+        button.setAttribute('aria-selected', String(selected));
+        button.tabIndex = selected ? 0 : -1;
+        const panelId = button.getAttribute('aria-controls');
+        const panel = panelId ? document.getElementById(panelId) : null;
+        if (panel) panel.hidden = !selected;
+      });
+      if (focus) tabButtons[index]?.focus();
+    };
+
+    tabButtons.forEach((button, index) => {
+      button.addEventListener('click', () => activate(index, false));
+      button.addEventListener('keydown', (event) => {
+        const nextIndex = getNextTabIndex(index, event.key, tabButtons.length);
+        if (nextIndex !== index) {
+          event.preventDefault();
+          activate(nextIndex, true);
+        }
+      });
+    });
+  }
+</script>

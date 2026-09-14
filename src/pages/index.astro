@@ -1,17 +1,56 @@
 ---
+import PipBoyScreen from '../components/PipBoyScreen.astro';
+import BootSequence from '../components/BootSequence.astro';
+import TabNav from '../components/TabNav.astro';
+import StatusSection from '../components/sections/StatusSection.astro';
+import InvSection from '../components/sections/InvSection.astro';
+import DataSection from '../components/sections/DataSection.astro';
+import MapSection from '../components/sections/MapSection.astro';
+import profile from '../data/profile.json';
+import type { TabId } from '../lib/tabNavigation';
+import '../styles/pipboy.css';
 
+const tabs: { id: TabId; label: string }[] = [
+  { id: 'status', label: 'Status' },
+  { id: 'inv', label: 'Inv' },
+  { id: 'data', label: 'Data' },
+  { id: 'map', label: 'Map' },
+];
+
+const bootLines = [
+  'PIP-GIRL OS v1.0 — INITIALISATION...',
+  `CHARGEMENT DU DOSSIER : ${profile.name}`,
+  'VÉRIFICATION DES MODULES DE COMPÉTENCES... OK',
+  "CHARGEMENT DE L'HISTORIQUE PROFESSIONNEL... OK",
+  'CONNEXION AUX CANAUX DE CONTACT... OK',
+  'PRÊT.',
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content={profile.tagline} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <title>{profile.name} — CV interactif Pip-Boy</title>
+  </head>
+  <body>
+    <PipBoyScreen title="PIP-GIRL 3000">
+      <BootSequence lines={bootLines} />
+      <TabNav tabs={tabs} activeTab="status" />
+      <section id="panel-status" role="tabpanel" aria-labelledby="tab-status">
+        <StatusSection />
+      </section>
+      <section id="panel-inv" role="tabpanel" aria-labelledby="tab-inv" hidden>
+        <InvSection />
+      </section>
+      <section id="panel-data" role="tabpanel" aria-labelledby="tab-data" hidden>
+        <DataSection />
+      </section>
+      <section id="panel-map" role="tabpanel" aria-labelledby="tab-map" hidden>
+        <MapSection />
+      </section>
+    </PipBoyScreen>
+  </body>
 </html>

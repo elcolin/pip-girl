@@ -1,0 +1,21 @@
+---
+import skills from '../../data/skills.json';
+import { getSkillLevelLabel } from '../../lib/cvData';
+---
+
+<h2 class="section-heading">Inventaire — Compétences</h2>
+{
+  skills.categories.map((category) => (
+    <section>
+      <h3>{category.name}</h3>
+      <ul class="tech-tags">
+        {category.items.map((item) => (
+          <li>
+            {item.name}
+            <span class="visually-hidden"> — niveau {getSkillLevelLabel(item.level)}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  ))
+}
