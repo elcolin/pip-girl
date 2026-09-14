@@ -128,7 +128,7 @@ button:focus-visible,
 
 .tab-list [role='tab'] {
   font: inherit;
-  color: var(--pb-green-dim);
+  color: var(--pb-green);
   background: transparent;
   border: 1px solid transparent;
   border-bottom: none;
@@ -168,7 +168,7 @@ button:focus-visible,
 
 .boot-sequence__skip {
   font: inherit;
-  color: var(--pb-green-dim);
+  color: var(--pb-green);
   background: transparent;
   border: 1px solid var(--pb-green-dim);
   padding: 0.25rem 0.75rem;
