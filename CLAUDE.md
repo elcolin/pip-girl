@@ -14,6 +14,9 @@ seulement quand le "pourquoi" n'est pas évident dans le code.
 - Messages de commit courts et descriptifs, à l'impératif.
 - Ne jamais forcer un déploiement Cloudflare Pages manuellement : le
   déploiement passe par le push Git (voir section Hébergement).
+- Un commit produit par un subagent (voir section Agents) termine son
+  message par un trailer `Agent: <nom-de-l-agent>` (ex. `Agent:
+  code-generator`), en plus de l'attribution Claude déjà appliquée.
 
 ## Conventions de nommage
 

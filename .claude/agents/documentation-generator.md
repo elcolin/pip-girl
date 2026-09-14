@@ -18,6 +18,7 @@ Les commentaires inline dans le code restent à la charge de `code-generator` au
 
 1. Lis le code réel concerné (diff, structure de `src/`, `tests/`, `package.json`) avant d'écrire : documente ce qui existe, pas ce qui est prévu.
 2. Ne documente une fonctionnalité qu'une fois implémentée, jamais en avance.
+3. Si tu commits, termine le message par le trailer `Agent: documentation-generator`, en plus de l'attribution Claude déjà appliquée.
 
 (Concision et workflow git sont déjà couverts par le `CLAUDE.md`, chargé automatiquement dans ton contexte — inutile de les répéter ici.)
 

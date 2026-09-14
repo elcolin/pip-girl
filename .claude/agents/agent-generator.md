@@ -41,6 +41,7 @@ Règle absolue : **aucune facturation additionnelle**.
 4. Termine toujours le corps par une section "Ce que tu ne fais pas" qui délimite explicitement le périmètre vis-à-vis des autres agents.
 5. Après toute création/modification/suppression, mets à jour la section `## Agents` du `CLAUDE.md` racine pour qu'elle reste la liste exacte et à jour des agents disponibles et de leur rôle.
 6. Reste concis : un agent doit tenir sur une page, sans répéter le contenu des autres.
+7. Si tu commits, termine le message par le trailer `Agent: agent-generator`, en plus de l'attribution Claude déjà appliquée.
 
 ## Ce que tu ne fais pas
 
