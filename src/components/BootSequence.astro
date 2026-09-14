@@ -1,0 +1,59 @@
+---
+interface Props {
+  lines: string[];
+}
+
+const { lines } = Astro.props;
+---
+
+<section class="boot-sequence" id="boot-sequence" aria-label="Séquence de démarrage">
+  <div data-boot-lines>
+    {lines.map((line) => <p class="boot-sequence__line">{line}</p>)}
+  </div>
+  <button type="button" class="boot-sequence__skip" data-boot-skip hidden>
+    Passer &gt;&gt;
+  </button>
+</section>
+
+<script>
+  import { advanceBoot, createInitialBootState, skipBoot, type BootState } from '../lib/bootSequence';
+
+  const section = document.getElementById('boot-sequence');
+  const linesContainer = section?.querySelector<HTMLDivElement>('[data-boot-lines]');
+  const skipButton = section?.querySelector<HTMLButtonElement>('[data-boot-skip]');
+
+  if (section && linesContainer && skipButton) {
+    const lineElements = Array.from(linesContainer.querySelectorAll<HTMLParagraphElement>('.boot-sequence__line'));
+    const lines = lineElements.map((el) => el.textContent ?? '');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const render = (state: BootState) => {
+      lineElements.forEach((el, index) => {
+        el.hidden = index >= state.visibleLines.length;
+      });
+      if (state.done) {
+        skipButton.hidden = true;
+        section.setAttribute('hidden', '');
+      }
+    };
+
+    if (prefersReducedMotion) {
+      render(skipBoot(lines));
+    } else {
+      let state = createInitialBootState();
+      render(state);
+      skipButton.hidden = false;
+
+      const intervalId = window.setInterval(() => {
+        state = advanceBoot(state, lines);
+        render(state);
+        if (state.done) window.clearInterval(intervalId);
+      }, 350);
+
+      skipButton.addEventListener('click', () => {
+        window.clearInterval(intervalId);
+        render(skipBoot(lines));
+      });
+    }
+  }
+</script>

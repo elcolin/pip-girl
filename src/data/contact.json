@@ -1,0 +1,8 @@
+{
+  "email": "contact@example.invalid",
+  "location": "France — placeholder, à confirmer",
+  "links": [
+    { "label": "GitHub", "url": "https://github.com/placeholder" },
+    { "label": "LinkedIn", "url": "https://www.linkedin.com/in/placeholder" }
+  ]
+}

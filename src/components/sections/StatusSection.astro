@@ -1,0 +1,31 @@
+---
+import profile from '../../data/profile.json';
+---
+
+<h2 class="section-heading">Status</h2>
+<p>{profile.title}</p>
+<p>{profile.tagline}</p>
+<p>{profile.summary}</p>
+<dl>
+  <dt>Localisation</dt>
+  <dd>{profile.location}</dd>
+  <dt>Disponibilité</dt>
+  <dd>{profile.availability}</dd>
+</dl>
+
+<h3 class="section-heading">S.P.E.C.I.A.L.</h3>
+<div>
+  {
+    profile.special.map((stat) => (
+      <div class="stat-bar">
+        <span>
+          {stat.code} — {stat.label}
+        </span>
+        <span class="stat-bar__track">
+          <span class={`stat-bar__fill stat-bar__fill--${stat.value}`} />
+        </span>
+        <span aria-hidden="true">{stat.value}/10</span>
+      </div>
+    ))
+  }
+</div>

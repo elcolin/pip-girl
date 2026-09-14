@@ -1,0 +1,31 @@
+---
+import experience from '../../data/experience.json';
+import { formatPeriod, sortExperienceByDateDesc } from '../../lib/cvData';
+
+const entries = sortExperienceByDateDesc(experience.entries);
+---
+
+<h2 class="section-heading">Data — Parcours</h2>
+{
+  entries.map((entry) => (
+    <article>
+      <h3>
+        {entry.role} — {entry.organization}
+      </h3>
+      <p>
+        <time>{formatPeriod(entry.start, entry.end)}</time> · {entry.location}
+      </p>
+      <p>{entry.description}</p>
+      <ul>
+        {entry.highlights.map((highlight) => (
+          <li>{highlight}</li>
+        ))}
+      </ul>
+      <ul class="tech-tags">
+        {entry.tech.map((tech) => (
+          <li>{tech}</li>
+        ))}
+      </ul>
+    </article>
+  ))
+}

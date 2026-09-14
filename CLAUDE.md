@@ -44,23 +44,29 @@ Contraintes non négociables du projet :
 
 ## Stack technique retenue
 
-- **Astro** + **TypeScript** — génère du HTML statique par défaut, JS
+- **Astro 7** + **TypeScript** — génère du HTML statique par défaut, JS
   minimal côté client (islands architecture), idéal pour un CV : rapide,
   peu de JS = peu de surface d'attaque, bon score Lighthouse/SEO out of
   the box.
-- **CSS natif** (custom properties pour le thème Pip-Boy : vert
-  `--pb-green`, fond `--pb-bg`, glow via `text-shadow`/`filter`). Pas de
-  framework CSS lourd — ce n'est pas nécessaire pour ce périmètre.
-- **Vitest** pour les tests unitaires/composants (logique : parsing du
-  contenu du CV, simulation du boot terminal, navigation entre onglets,
-  éventuelle commande façon "console" easter egg).
-- **Playwright** pour les tests end-to-end (navigation clavier entre
-  onglets, rendu des sections, accessibilité de base, non-régression
-  visuelle sur l'effet CRT).
-- **Données du CV en JSON/YAML** séparées de la présentation
-  (`src/data/cv.json` ou similaire) — jamais de contenu personnel codé en
-  dur dans les composants, pour pouvoir le tester et le faire relire
-  facilement.
+- **CSS natif** dans `src/styles/pipboy.css` (custom properties pour le
+  thème Pip-Boy : vert, fond noir, glow/scanlines/flicker), avec
+  `prefers-reduced-motion` respecté et contraste vérifié WCAG AA. Pas de
+  framework CSS lourd.
+- **Vitest** (+ `@vitest/coverage-v8`) pour la logique pure de
+  `src/lib/{cvData,bootSequence,tabNavigation}.ts` (parsing des données du
+  CV, machine à états du boot sequence, navigation entre onglets) : 26
+  tests, 100% de couverture lignes/fonctions sur `src/lib`.
+- **Playwright** pour les tests end-to-end (`tests/e2e/home.spec.ts`) :
+  chargement de la page, navigation clic/clavier entre les onglets,
+  cohérence ARIA des tabs, bouton "passer" du boot, liens de contact.
+- **ESLint 9** (flat config, `eslint.config.js`) avec
+  `@typescript-eslint` et `eslint-plugin-astro`, complété par
+  `astro check` (typecheck) via `npm run lint`.
+- **Données du CV en JSON** dans
+  `src/data/{profile,skills,experience,contact}.json`, séparées de la
+  présentation — jamais de contenu personnel codé en dur dans les
+  composants. Ce sont pour l'instant des **données placeholder
+  fictives**, à remplacer avant toute publication.
 
 Ne pas introduire de backend / base de données / auth pour ce projet : un
 CV vitrine n'en a pas besoin, et chaque composant serveur ajouté est de la
@@ -149,15 +155,18 @@ L'esthétique CRT/scanlines ne doit pas nuire à l'accessibilité :
 
 ```
 src/
-  components/     # composants Astro (écran Pip-Boy, onglets, boot sequence…)
-  data/           # contenu du CV (JSON/YAML), séparé de la présentation
-  styles/         # thème Pip-Boy (custom properties, effets CRT)
-  pages/          # routes Astro
+  components/     # PipBoyScreen, TabNav, BootSequence
+    sections/     # StatusSection, InvSection, DataSection, MapSection
+  lib/            # logique testée : cvData, bootSequence, tabNavigation
+  data/           # contenu du CV en JSON (profile, skills, experience, contact)
+  styles/         # thème Pip-Boy (pipboy.css : custom properties, effets CRT)
+  pages/          # routes Astro (index.astro)
 tests/
-  unit/           # Vitest
-  e2e/            # Playwright
+  unit/           # Vitest (miroir de src/lib)
+  e2e/            # Playwright (home.spec.ts)
 public/
   _headers        # headers de sécurité Cloudflare Pages
+  favicon.ico / favicon.svg  # placeholders du scaffold Astro, à remplacer
 ```
 
 ## Agents
