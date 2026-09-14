@@ -9,9 +9,9 @@ N'implémente rien toi-même : chaque étape doit passer par le subagent dédié
 
 ## 1. Implémentation
 
-Invoque l'agent `code-generator` avec la description de la feature/du correctif ($ARGUMENTS). Rappelle-lui le workflow TDD du `CLAUDE.md` (test Unity avant le code, lib découplée d'`Arduino.h` quand possible, `pio test -e native`, puis `pio run -e esp32-s3-devkitc-1` si le changement touche du code Arduino).
+Invoque l'agent `code-generator` avec la description de la feature/du correctif ($ARGUMENTS). Rappelle-lui le workflow TDD du `CLAUDE.md` (test Vitest — ou Playwright pour un comportement utilisateur observable — écrit avant le code, `npm run test:ci`, puis `npm run test:e2e` si une page/un composant rendu est concerné, `npm run lint` pour ESLint + `astro check`). Données du CV dans `src/data/` en JSON/YAML, jamais de contenu personnel codé en dur dans les composants ; pas de backend/auth/base de données.
 
-Si l'agent ne peut pas terminer (ambiguïté, info hardware manquante), arrête le pipeline et demande la précision à l'utilisateur — ne passe pas à l'étape 2.
+Si l'agent ne peut pas terminer (ambiguïté, contenu CV manquant, demande hors périmètre statique/Cloudflare Pages), arrête le pipeline et demande la précision à l'utilisateur — ne passe pas à l'étape 2.
 
 ## 2. Revue
 
