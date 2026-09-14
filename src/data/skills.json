@@ -1,0 +1,30 @@
+{
+  "categories": [
+    {
+      "name": "Langages",
+      "items": [
+        { "name": "TypeScript", "level": 5 },
+        { "name": "JavaScript", "level": 5 },
+        { "name": "Python", "level": 3 },
+        { "name": "SQL", "level": 3 }
+      ]
+    },
+    {
+      "name": "Frameworks & Bibliothèques",
+      "items": [
+        { "name": "Astro", "level": 4 },
+        { "name": "React", "level": 4 },
+        { "name": "Node.js", "level": 4 }
+      ]
+    },
+    {
+      "name": "Outils & Pratiques",
+      "items": [
+        { "name": "Tests (Vitest/Playwright)", "level": 5 },
+        { "name": "Git", "level": 5 },
+        { "name": "CI/CD", "level": 4 },
+        { "name": "Sécurité applicative", "level": 3 }
+      ]
+    }
+  ]
+}

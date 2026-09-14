@@ -1,0 +1,47 @@
+{
+  "entries": [
+    {
+      "id": "job-placeholder-2",
+      "role": "Développeuse Full-Stack Senior",
+      "organization": "ENTREPRISE PLACEHOLDER B",
+      "start": "2022-06",
+      "end": null,
+      "location": "Remote — placeholder",
+      "description": "Conception et développement d'applications web, de la maquette au déploiement, avec un accent sur la fiabilité et la sécurité.",
+      "highlights": [
+        "Mise en place d'une suite de tests automatisés couvrant les parcours critiques",
+        "Réduction du temps de déploiement grâce à une pipeline CI/CD",
+        "Accompagnement d'une équipe junior sur les bonnes pratiques TDD"
+      ],
+      "tech": ["TypeScript", "Astro", "Node.js", "PostgreSQL"]
+    },
+    {
+      "id": "job-placeholder-1",
+      "role": "Développeuse Web",
+      "organization": "ENTREPRISE PLACEHOLDER A",
+      "start": "2019-09",
+      "end": "2022-05",
+      "location": "Paris — placeholder",
+      "description": "Développement et maintenance d'applications internes, participation aux revues de code et à l'amélioration continue des processus.",
+      "highlights": [
+        "Migration progressive d'un monolithe vers des modules découplés",
+        "Introduction de tests unitaires sur le legacy critique"
+      ],
+      "tech": ["JavaScript", "React", "Node.js"]
+    },
+    {
+      "id": "project-placeholder-1",
+      "role": "Projet personnel — pip-girl",
+      "organization": "Indépendant",
+      "start": "2026-09",
+      "end": null,
+      "location": "À distance",
+      "description": "CV interactif façon Pip-Boy 3000, développé en TDD avec Astro, pensé pour rester statique et sécurisé.",
+      "highlights": [
+        "Développement TDD strict (Vitest + Playwright)",
+        "Headers de sécurité stricts, aucune dépendance backend"
+      ],
+      "tech": ["Astro", "TypeScript", "Vitest", "Playwright"]
+    }
+  ]
+}
