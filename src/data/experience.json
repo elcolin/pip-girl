@@ -30,7 +30,7 @@
       "tech": ["JavaScript", "React", "Node.js"]
     },
     {
-      "id": "project-placeholder-1",
+      "id": "project-pip-girl",
       "role": "Projet personnel — pip-girl",
       "organization": "Indépendant",
       "start": "2026-09",
@@ -42,6 +42,117 @@
         "Headers de sécurité stricts, aucune dépendance backend"
       ],
       "tech": ["Astro", "TypeScript", "Vitest", "Playwright"]
+    },
+    {
+      "id": "project-rampeluche",
+      "role": "Projet personnel — Rampeluche",
+      "organization": "Indépendant",
+      "start": "2026-05",
+      "end": null,
+      "location": "À distance",
+      "description": "Robot autonome deux roues visant le SLAM et la navigation autonome : téléopération clavier via Wi-Fi, contrôle moteur différentiel et décodage des trames Lidar.",
+      "highlights": [
+        "Téléopération Wi-Fi avec coupure de sécurité moteur en cas de déconnexion",
+        "Décodage des trames Lidar (vérification de checksum, interpolation angle/distance)",
+        "Suite de tests unitaires (Unity) sur la logique de contrôle et de téléopération"
+      ],
+      "tech": ["C++", "Systèmes embarqués", "Wi-Fi/TCP", "Tests unitaires"]
+    },
+    {
+      "id": "project-ft-transcendence",
+      "role": "Projet personnel — ft_transcendence",
+      "organization": "École 42",
+      "start": "2023-07",
+      "end": "2023-10",
+      "location": "À distance",
+      "description": "Application web pour participer à un tournoi du jeu Pong, développée avec Angular, NestJS et PostgreSQL, conteneurisée avec Docker.",
+      "highlights": [
+        "Frontend Angular, backend NestJS, base de données PostgreSQL",
+        "Orchestration multi-conteneurs via Docker Compose"
+      ],
+      "tech": ["TypeScript", "Angular", "NestJS", "PostgreSQL", "Docker"]
+    },
+    {
+      "id": "project-ft-irc",
+      "role": "Projet personnel — ft_irc",
+      "organization": "École 42",
+      "start": "2023-04",
+      "end": "2024-01",
+      "location": "À distance",
+      "description": "Recréation d'un serveur IRC (Internet Relay Chat) en C++98, avec gestion des connexions socket et des commandes IRC standard.",
+      "highlights": [
+        "Gestion des connexions concurrentes via sockets",
+        "Implémentation des commandes IRC standard"
+      ],
+      "tech": ["C++", "Réseau", "Sockets"]
+    },
+    {
+      "id": "project-minishell",
+      "role": "Projet personnel — minishell",
+      "organization": "École 42",
+      "start": "2022-10",
+      "end": "2023-04",
+      "location": "À distance",
+      "description": "Recréation d'un shell Unix minimal : pipes, redirections, gestion des signaux et parsing de la ligne de commande.",
+      "highlights": [
+        "Gestion des pipes et redirections (infiles/outfiles)",
+        "Parsing de la ligne de commande et gestion des signaux"
+      ],
+      "tech": ["C", "Systèmes Unix", "Parsing"]
+    },
+    {
+      "id": "project-cub3d",
+      "role": "Projet personnel — cub3d",
+      "organization": "École 42",
+      "start": "2023-04",
+      "end": "2023-04",
+      "location": "À distance",
+      "description": "Moteur de rendu façon Wolfenstein 3D en C, basé sur le raycasting, avec optimisation des calculs de trigonométrie.",
+      "highlights": [
+        "Implémentation d'un moteur de raycasting from scratch",
+        "Optimisation des performances de rendu"
+      ],
+      "tech": ["C", "Raycasting", "Trigonométrie"]
+    },
+    {
+      "id": "project-nmap",
+      "role": "Projet personnel — nmap",
+      "organization": "Indépendant",
+      "start": "2026-01",
+      "end": "2026-01",
+      "location": "À distance",
+      "description": "Recréation en C d'un scanner réseau inspiré de nmap.",
+      "highlights": [
+        "Manipulation de sockets bas niveau en C"
+      ],
+      "tech": ["C", "Réseau", "Sockets"]
+    },
+    {
+      "id": "project-learn2slither",
+      "role": "Projet personnel — learn2slither",
+      "organization": "Indépendant",
+      "start": "2026-03",
+      "end": "2026-06",
+      "location": "À distance",
+      "description": "Exploration de l'apprentissage par renforcement (Q-Learning) sur un jeu type Snake, en Python.",
+      "highlights": [
+        "Implémentation d'un agent Q-Learning entraîné par épisodes"
+      ],
+      "tech": ["Python", "Reinforcement Learning", "Q-Learning"]
+    },
+    {
+      "id": "project-inception",
+      "role": "Projet personnel — Inception",
+      "organization": "École 42",
+      "start": "2023-04",
+      "end": "2023-06",
+      "location": "À distance",
+      "description": "Infrastructure Docker multi-conteneurs : Nginx, MariaDB et WordPress, chacun dans son propre conteneur.",
+      "highlights": [
+        "Conteneurs Nginx, MariaDB et WordPress isolés",
+        "Configuration réseau et volumes Docker"
+      ],
+      "tech": ["Docker", "Shell", "Nginx", "MariaDB"]
     }
   ]
 }

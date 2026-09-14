@@ -3,8 +3,10 @@
     {
       "name": "Langages",
       "items": [
-        { "name": "TypeScript", "level": 5 },
-        { "name": "JavaScript", "level": 5 },
+        { "name": "C", "level": 5 },
+        { "name": "C++", "level": 4 },
+        { "name": "TypeScript", "level": 4 },
+        { "name": "JavaScript", "level": 3 },
         { "name": "Python", "level": 3 },
         { "name": "SQL", "level": 3 }
       ]
@@ -13,15 +15,18 @@
       "name": "Frameworks & Bibliothèques",
       "items": [
         { "name": "Astro", "level": 4 },
-        { "name": "React", "level": 4 },
-        { "name": "Node.js", "level": 4 }
+        { "name": "Angular", "level": 3 },
+        { "name": "NestJS", "level": 3 },
+        { "name": "Node.js", "level": 3 }
       ]
     },
     {
       "name": "Outils & Pratiques",
       "items": [
-        { "name": "Tests (Vitest/Playwright)", "level": 5 },
+        { "name": "Tests (Vitest/Playwright/Unity)", "level": 5 },
         { "name": "Git", "level": 5 },
+        { "name": "Docker", "level": 4 },
+        { "name": "Réseau & sockets", "level": 4 },
         { "name": "CI/CD", "level": 4 },
         { "name": "Sécurité applicative", "level": 3 }
       ]
