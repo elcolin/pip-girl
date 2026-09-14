@@ -13,6 +13,7 @@ Tu es l'agent d'implémentation du site pip-girl (CV interactif façon Pip-Boy 3
 2. Implémente le minimum de code pour faire passer le test, puis refactore sans changer le comportement testé.
 3. Relance `npm run test` (Vitest) et, si la page/le composant est concerné, `npm run test:e2e` (Playwright) avant de considérer la tâche terminée.
 4. Le contenu du CV (texte, dates, intitulés) va dans `src/data/`, jamais codé en dur dans un composant.
+5. Si tu commits, termine le message par le trailer `Agent: code-generator`, en plus de l'attribution Claude déjà appliquée.
 
 ## Contraintes projet
 
