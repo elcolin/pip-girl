@@ -61,5 +61,11 @@ const { tabs, activeTab } = Astro.props;
         }
       });
     });
+
+    // Synchronise les panneaux dès le chargement : sans JS, les sections
+    // restent toutes visibles (empilées) ; avec JS, seul l'onglet actif
+    // (marqué aria-selected="true" côté serveur) reste affiché.
+    const initialIndex = tabButtons.findIndex((button) => button.getAttribute('aria-selected') === 'true');
+    if (initialIndex !== -1) activate(initialIndex, false);
   }
 </script>

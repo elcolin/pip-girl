@@ -39,16 +39,21 @@ const bootLines = [
     <PipBoyScreen title="PIP-GIRL 3000">
       <BootSequence lines={bootLines} />
       <TabNav tabs={tabs} activeTab="status" />
+      <!--
+        Pas de `hidden` statique ici : sans JS, les quatre sections restent
+        toutes lisibles (empilées). Avec JS, TabNav masque les panneaux
+        inactifs dès le chargement pour ne montrer que l'onglet actif.
+      -->
       <section id="panel-status" role="tabpanel" aria-labelledby="tab-status">
         <StatusSection />
       </section>
-      <section id="panel-inv" role="tabpanel" aria-labelledby="tab-inv" hidden>
+      <section id="panel-inv" role="tabpanel" aria-labelledby="tab-inv">
         <InvSection />
       </section>
-      <section id="panel-data" role="tabpanel" aria-labelledby="tab-data" hidden>
+      <section id="panel-data" role="tabpanel" aria-labelledby="tab-data">
         <DataSection />
       </section>
-      <section id="panel-map" role="tabpanel" aria-labelledby="tab-map" hidden>
+      <section id="panel-map" role="tabpanel" aria-labelledby="tab-map">
         <MapSection />
       </section>
     </PipBoyScreen>
